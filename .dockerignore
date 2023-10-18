@@ -1,26 +1,14 @@
-**/node_modules/
-# We cannot ignore this as it's breaking the multistage dockerfile
-**/dist/
-# !/packages/worker/dist/
+*
+!/packages/
+!/scripts/
+/packages/*/node_modules
+packages/server/scripts/
+!packages/server/scripts/integrations/oracle
+!nx.json
+!/hosting/single/
+!/hosting/letsencrypt /
 
-.git
-npm-debug.log
-.coverage
-.coverage.*
-.env
-.aws
-
-Dockerfile
-
-.dockerignore
-
-.github/
-.husky/
-.vscode/
-charts/
-docs/
-examples/
-hosting/
-i18n/
-qa-core/
-specs/
+!package.json
+!yarn.lock
+!lerna.json
+!.yarnrc
