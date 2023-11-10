@@ -70,7 +70,7 @@ describe.each([
 
   const generateTableConfig: () => SaveTableRequest = () => {
     return {
-      name: uuid.v4(),
+      name: `Table ${uuid.v4()}`,
       type: "table",
       primary: ["id"],
       primaryDisplay: "name",
@@ -348,7 +348,7 @@ describe.each([
           },
         }
         const table = await createTable({
-          name: "TestTable2",
+          name: "Test table 2",
           type: "table",
           schema: {
             name: str,
@@ -464,7 +464,7 @@ describe.each([
     it("views have extra data trimmed", async () => {
       const table = await createTable({
         type: "table",
-        name: "orders",
+        name: "Orders table",
         primary: ["OrderID"],
         schema: {
           Country: {
@@ -580,7 +580,7 @@ describe.each([
       }
 
       let table = await config.api.table.create({
-        name: "TestTable",
+        name: "Test Table",
         type: "table",
         sourceType: TableSourceType.INTERNAL,
         sourceId: INTERNAL_TABLE_SOURCE_ID,
@@ -819,7 +819,7 @@ describe.each([
             ["link"],
             {
               // Making sure that the combined table name + column name is within postgres limits
-              name: uuid.v4().replace(/-/g, "").substring(0, 16),
+              name: `aux ${uuid.v4().replace(/-/g, "").substring(0, 16)}`,
               type: "table",
               primary: ["id"],
               primaryDisplay: "id",
@@ -952,7 +952,7 @@ describe.each([
   describe("view 2.0", () => {
     async function userTable(): Promise<Table> {
       return {
-        name: `users_${uuid.v4()}`,
+        name: `users ${uuid.v4()}`,
         sourceId: INTERNAL_TABLE_SOURCE_ID,
         sourceType: TableSourceType.INTERNAL,
         type: "table",
@@ -1136,7 +1136,7 @@ describe.each([
       const viewSchema = { age: { visible: true }, name: { visible: true } }
       async function userTable(): Promise<Table> {
         return {
-          name: `users_${uuid.v4()}`,
+          name: `users ${uuid.v4()}`,
           sourceId: INTERNAL_TABLE_SOURCE_ID,
           sourceType: TableSourceType.INTERNAL,
           type: "table",
